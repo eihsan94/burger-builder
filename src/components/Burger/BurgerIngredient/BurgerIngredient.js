@@ -5,6 +5,7 @@
 
 import React from 'react'
 import classes from './BurgerIngredient.module.css';
+import PropTypes from 'prop-types'
 
 export default function BurgerIngredient (props) {
     let ingredient = null;
@@ -37,4 +38,7 @@ export default function BurgerIngredient (props) {
             break;
     }
     return ingredient;
+}
+BurgerIngredient.propTypes = {
+    type: PropTypes.string,
 }
