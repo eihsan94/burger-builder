@@ -3,30 +3,23 @@
 * @Explanation: THE BURGER STYLING ITSELF.
  */
 .Burger {
-    width: 100%;
-    margin: auto;
-    height: 250px;
+    margin: 2em;
+    width: 40%;
+    height: 90%;
     overflow: auto;
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
+    box-shadow: /* FOR NEUMORPHISM EFFECTS */
+      -12px -12px 12px 0 rgba(255, 255, 255, 1),
+      12px 12px 12px 0 rgba(0, 0, 0, .07);
+    padding: 1em 1em;
+    
 }
 
-@media (min-width:500px) and (min-height: 400px) {
+@media (max-width:860px) and (min-height: 400px) {
     .Burger {
-        width: 350px;
-        height: 300px;
-    }
-}
-@media (min-width:500px) and (min-height: 401px) {
-    .Burger {
-        width: 450px;
-        height: 400px;
-    }
-}
-@media (min-width:1000px) and (min-height: 700px) {
-    .Burger {
-        width: 700px;
-        height: 600px;
+        width: 300px;
+    height: 350px;
     }
 }

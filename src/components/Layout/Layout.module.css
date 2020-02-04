@@ -6,4 +6,9 @@
 
 .content {
     margin: 10px 0px;
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
 }

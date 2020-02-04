@@ -7,13 +7,25 @@ const controls  = [
     { label: 'Salad', type: 'salad'},
     { label: 'Cheese', type: 'cheese'},
     { label: 'Meat', type: 'meat'},
-    { label: 'Bacon', type: 'bacon'},
+    { label: 'Tomato', type: 'tomato'},
 ];
 
 function BuildControls(props) {
     return (
         <div className={classes.BuildControls}>
-            {controls.map(c => <BuildControl key={c.label} label={c.label} />)}
+            <div className={classes.Price}>
+                {props.totalPrice}
+            </div>
+            <div className={classes.ButtonsContainer}>
+                {controls.map(c => 
+                    <BuildControl 
+                        key={c.label}
+                        label={c.label}
+                        added={() => props.ingredientAdded(c.type)}
+                        removed={() => props.ingredientRemoved(c.type)}
+                    />)
+                }
+            </div>
         </div>
     )
 }

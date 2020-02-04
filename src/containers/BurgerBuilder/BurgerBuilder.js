@@ -8,22 +8,68 @@ import Aux from '../../hoc/Aux';
 import Burger from "../../components/Burger/Burger";
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 
+
+const INGREDIENT_PRICES = {
+    salad: 50,
+    tomato: 40,
+    cheese: 130,
+    meat: 170
+};
+
 export default class BurgerBuilder extends Component {
     state = {
         ingredients: {
-            salad: 1,
-            bacon: 1,
-            cheese: 2,
-            meat: 2
-        }
+            salad: 0,
+            tomato: 0,
+            cheese: 0,
+            meat: 0
+        },
+        totalPrice: 40,
     }
     
+    addIngredientHandler = (type) => {
+        const oldCount = this.state.ingredients[type];
+        const updatedCount  = oldCount + 1;
+        const updatedIngredients = {
+            ...this.state.ingredients
+        }
+        updatedIngredients[type] = updatedCount;
+        const priceAddition = INGREDIENT_PRICES[type];
+        const oldPrice = this.state.totalPrice;
+        const newPrice = oldPrice + priceAddition;
+        this.setState({
+            totalPrice: Math.floor(newPrice),
+            ingredients: updatedIngredients,
+        });
+    }
+    
+    removeIngredientHandler = (type) => {
+        const oldCount = this.state.ingredients[type];
+        if (oldCount > 0) {
+            const updatedCount  = oldCount - 1;
+            const updatedIngredients = {
+                ...this.state.ingredients
+            }
+            updatedIngredients[type] = updatedCount;
+            const priceAddition = INGREDIENT_PRICES[type];
+            const oldPrice = this.state.totalPrice;
+            const newPrice = oldPrice - priceAddition;
+            this.setState({
+                totalPrice: Math.floor(newPrice),
+                ingredients: updatedIngredients,
+            });
+        }
+    }
+
     render() {
         return (
             <Aux>
                 <Burger ingredients={this.state.ingredients} />
-                <BuildControls />
-
+                <BuildControls 
+                    totalPrice={this.state.totalPrice}
+                    ingredientAdded={this.addIngredientHandler} 
+                    ingredientRemoved={this.removeIngredientHandler} 
+                />
             </Aux>
         )
     }

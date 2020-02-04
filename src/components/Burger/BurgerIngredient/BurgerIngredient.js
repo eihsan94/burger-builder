@@ -30,8 +30,8 @@ export default function BurgerIngredient (props) {
         case 'salad':
             ingredient = <div className={classes.Salad}></div>;
             break;
-        case 'bacon':
-            ingredient = <div className={classes.Bacon}></div>;
+        case 'tomato':
+            ingredient = <div className={classes.Tomato}></div>;
             break;
         default:
             ingredient = null;
