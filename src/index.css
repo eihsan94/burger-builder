@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  background: #EEEEEE; /* FOR NEUMORPHISM EFFECTS */
+  color: rgba(0, 0, 0, .5);
   font-family: 'Audiowide', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

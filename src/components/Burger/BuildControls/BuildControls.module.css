@@ -1,11 +1,14 @@
 .BuildControls {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
     margin: auto;
     padding: 10px 0;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: /* FOR NEUMORPHISM EFFECTS */
+        -12px -12px 12px 0 rgba(255, 255, 255, 1),
+        12px 12px 12px 0 rgba(0, 0, 0, .07);
+    background: #f2f2f2;
 }
 
