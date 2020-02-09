@@ -23,6 +23,7 @@ function BuildControls(props) {
                         label={c.label}
                         added={() => props.ingredientAdded(c.type)}
                         removed={() => props.ingredientRemoved(c.type)}
+                        disabled={props.disabled[c.type]}
                     />)
                 }
             </div>
